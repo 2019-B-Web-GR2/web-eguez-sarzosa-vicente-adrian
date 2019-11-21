@@ -24,6 +24,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USRSIG.LABFIS\Documents\GitHub\web-eguez-sarzosa-vicente-adrian\00 - git" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -48,12 +53,19 @@
       <updated>1569611802649</updated>
       <workItem from="1569611805102" duration="5615000" />
       <workItem from="1571339162193" duration="595000" />
-      <workItem from="1572549115298" duration="348000" />
+      <workItem from="1572549115298" duration="1103000" />
+      <workItem from="1574363985037" duration="1240000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/01 - web/a-pruebas-http/node_modules/.staging/@nestjs/schematics-f943ec4d/lib/defaults.d.ts" />
+        <option value="$PROJECT_DIR$/01 - web/a-pruebas-http/node_modules/.staging/@nestjs/schematics-f943ec4d/lib/defaults.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
