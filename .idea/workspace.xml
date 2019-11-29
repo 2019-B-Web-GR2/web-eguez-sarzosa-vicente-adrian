@@ -12,6 +12,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -23,6 +24,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\USRSIG.LABFIS\Documents\GitHub\web-eguez-sarzosa-vicente-adrian\01 - web\a-pruebas-http\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -54,7 +57,11 @@
       <workItem from="1569611805102" duration="5615000" />
       <workItem from="1571339162193" duration="595000" />
       <workItem from="1572549115298" duration="1103000" />
-      <workItem from="1574363985037" duration="1240000" />
+      <workItem from="1574363985037" duration="4629000" />
+      <workItem from="1574450519933" duration="5462000" />
+      <workItem from="1574968464930" duration="5790000" />
+      <workItem from="1575054479446" duration="345000" />
+      <workItem from="1575059721714" duration="1471000" />
     </task>
     <servers />
   </component>
