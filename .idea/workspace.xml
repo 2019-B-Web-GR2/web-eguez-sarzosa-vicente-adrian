@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d97b5618-276e-42de-8ada-0a5ae2f16089" name="Default Changelist" comment="" />
+    <list default="true" id="d97b5618-276e-42de-8ada-0a5ae2f16089" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.service.ts" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +67,9 @@
       <workItem from="1574450519933" duration="5462000" />
       <workItem from="1574968464930" duration="5790000" />
       <workItem from="1575054479446" duration="345000" />
-      <workItem from="1575059721714" duration="1471000" />
+      <workItem from="1575059721714" duration="1922000" />
+      <workItem from="1575322135284" duration="360000" />
+      <workItem from="1576182540684" duration="1727000" />
     </task>
     <servers />
   </component>
