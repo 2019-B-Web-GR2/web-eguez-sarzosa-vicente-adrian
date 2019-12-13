@@ -4,6 +4,7 @@ import {AppService} from './app.service';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {UsuarioEntity} from "./usuario/usuario.entity";
 import {UsuarioModule} from "./usuario/usuario.module";
+import {UsuarioService} from "./usuario/usuario.service";
 
 @Module({
     imports: [
@@ -13,7 +14,7 @@ import {UsuarioModule} from "./usuario/usuario.module";
                 name: 'default', // Nombre cadena de Conex.
                 type: 'mysql',
                 host: '172.31.108.148',
-                port: 32769,
+                port: 32771,
                 username: 'LazaMH',
                 password: '1234',
                 database: 'Prueba',
@@ -28,4 +29,9 @@ import {UsuarioModule} from "./usuario/usuario.module";
     providers: [AppService],
 })
 export class AppModule {
+    constructor(
+        private _usuarioService: UsuarioService,
+    ) {
+
+    }
 }
