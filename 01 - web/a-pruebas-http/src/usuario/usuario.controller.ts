@@ -1,4 +1,4 @@
-import {Controller, Get, Param} from "@nestjs/common";
+import {Body, Controller, Get, Param, Post} from "@nestjs/common";
 import {UsuarioService} from "./usuario.service";
 import {UsuarioEntity} from "./usuario.entity";
 
@@ -10,6 +10,7 @@ export class UsuarioController {
 
     }
 
+
     // GET /modelo/:id
     @Get(':id')
     obtenerUnUsuario(
@@ -18,6 +19,16 @@ export class UsuarioController {
         return this._usuarioService
             .encontrarUno(
                 Number(identificador)
+            );
+    }
+
+    @Post()
+    crearUnUsuario(
+        @Body() usuario: UsuarioEntity,
+    ): Promise<UsuarioEntity> {
+        return this._usuarioService
+            .crearUno(
+                usuario
             );
     }
 
