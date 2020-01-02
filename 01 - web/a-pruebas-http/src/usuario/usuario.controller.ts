@@ -1,6 +1,7 @@
-import {Body, Controller, Get, Param, Post, Put} from "@nestjs/common";
+import {Body, Controller, Delete, Get, Param, Post, Put} from "@nestjs/common";
 import {UsuarioService} from "./usuario.service";
 import {UsuarioEntity} from "./usuario.entity";
+import {DeleteResult} from "typeorm";
 
 @Controller('usuario')
 export class UsuarioController {
@@ -41,6 +42,16 @@ export class UsuarioController {
             .actualizarUno(
                 +id,
                 usuario
+            );
+    }
+
+    @Delete(':id')
+    eliminarUno(
+        @Param('id') id: string,
+    ): Promise<DeleteResult> {
+        return this._usuarioService
+            .borrarUno(
+                +id
             );
     }
 
