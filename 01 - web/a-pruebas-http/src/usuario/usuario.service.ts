@@ -36,11 +36,11 @@ export class UsuarioService {
     }
 
     buscar(
-        where:any = {},
+        where: any = {},
         skip: number = 0,
-        take: number = 10 
-    ) {
-        this._repositorioUsuario
+        take: number = 10
+    ): Promise<UsuarioEntity[]> {
+        return this._repositorioUsuario
             .find({
                 where: where,
                 skip: skip,
