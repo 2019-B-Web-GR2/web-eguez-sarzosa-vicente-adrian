@@ -1,4 +1,4 @@
-import {Body, Controller, Delete, Get, Param, Post, Put} from "@nestjs/common";
+import {Body, Controller, Delete, Get, Param, Post, Put, Query} from "@nestjs/common";
 import {UsuarioService} from "./usuario.service";
 import {UsuarioEntity} from "./usuario.entity";
 import {DeleteResult} from "typeorm";
@@ -52,6 +52,42 @@ export class UsuarioController {
         return this._usuarioService
             .borrarUno(
                 +id
+            );
+    }
+
+    @Get()
+    buscar(
+        @Query('skip') skip?: string | number,
+        @Query('take') take?: string | number,
+        @Query('where') where?: string,
+        @Query('order') order?: string,
+    ): Promise<UsuarioEntity[]> {
+        if(order){
+            try {
+                order = JSON.parse(order);
+            }catch (e) {
+                order = undefined;
+            }
+        }
+        if(where){
+            try {
+                where = JSON.parse(where);
+            }catch (e) {
+                where = undefined;
+            }
+        }
+        if(skip){
+            skip = +skip;
+        }
+        if(take){
+            take = +take;
+        }
+        return this._usuarioService
+            .buscar(
+                where,
+                skip as number,
+                take as number,
+                order
             );
     }
 
