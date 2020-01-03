@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97b5618-276e-42de-8ada-0a5ae2f16089" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.update-dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.create-dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.create-dto.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +71,10 @@
       <workItem from="1575054479446" duration="345000" />
       <workItem from="1575059721714" duration="1922000" />
       <workItem from="1575322135284" duration="360000" />
-      <workItem from="1576182540684" duration="1727000" />
+      <workItem from="1576182540684" duration="2475000" />
+      <workItem from="1576264282485" duration="6531000" />
+      <workItem from="1577992579695" duration="6372000" />
+      <workItem from="1578079331010" duration="4346000" />
     </task>
     <servers />
   </component>
