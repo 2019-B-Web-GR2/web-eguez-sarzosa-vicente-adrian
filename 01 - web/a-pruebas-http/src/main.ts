@@ -6,7 +6,8 @@ import * as session from 'express-session';
 const FileStore = require('session-file-store')(session);
 
 async function bootstrap() {
-    const app = await NestFactory.create(AppModule);
+    const app = await NestFactory.create(AppModule) as any;
+    app.set('view engine', 'ejs');
     app.use(
         session({
             name: 'server-session-id',
@@ -15,8 +16,8 @@ async function bootstrap() {
             saveUninitialized: true,
             cookie: {secure: false},
             store: new FileStore(),
-        })
-    )
+        }),
+    );
     await app.listen(4000);
 }
 

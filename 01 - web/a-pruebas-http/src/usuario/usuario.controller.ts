@@ -1,14 +1,25 @@
-import {BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Query, Session} from "@nestjs/common";
-import {UsuarioService} from "./usuario.service";
-import {UsuarioEntity} from "./usuario.entity";
-import {DeleteResult} from "typeorm";
+import {
+    BadRequestException,
+    Body,
+    Controller,
+    Delete,
+    Get,
+    Param,
+    Post,
+    Put,
+    Query,
+    Req, Res,
+    Session
+} from '@nestjs/common';
+import {UsuarioService} from './usuario.service';
+import {UsuarioEntity} from './usuario.entity';
+import {DeleteResult} from 'typeorm';
 import * as Joi from '@hapi/joi';
-import {UsuarioCreateDto} from "./usuario.create-dto";
-import {validate} from "class-validator";
-import {UsuarioUpdateDto} from "./usuario.update-dto";
+import {UsuarioCreateDto} from './usuario.create-dto';
+import {validate} from 'class-validator';
+import {UsuarioUpdateDto} from './usuario.update-dto';
 
 // JS const Joi = require('@hapi/joi');
-
 
 @Controller('usuario')
 export class UsuarioController {
@@ -18,27 +29,39 @@ export class UsuarioController {
 
     }
 
+    @Get('ejemploejs')
+    ejemploejs(
+        @Res() res,
+    ) {
+        res.render('ejemplo', {
+            datos: {
+                nombre: 'Adrian',
+            },
+        });
+    }
+
+
     @Post('login')
     login(
         @Body('username') username: string,
         @Body('password') password: string,
-        @Session() session
+        @Session() session,
     ) {
         console.log('Session', session);
         if (username === 'adrian' && password === '1234') {
             session.usuario = {
                 nombre: 'Adrian',
                 userId: 1,
-                roles: ['Administrador']
-            }
+                roles: ['Administrador'],
+            };
             return 'ok';
         }
         if (username === 'vicente' && password === '1234') {
             session.usuario = {
                 nombre: 'Vicente',
                 userId: 2,
-                roles: ['Supervisor']
-            }
+                roles: ['Supervisor'],
+            };
             return 'ok';
         }
         throw new BadRequestException('No envia credenciales');
@@ -46,22 +69,51 @@ export class UsuarioController {
 
     @Get('sesion')
     sesion(
-        @Session() session
+        @Session() session,
     ) {
         return session;
     }
 
+    @Get('logout')
+    logout(
+        @Session() session,
+        @Req() req,
+    ) {
+        session.usuario = undefined;
+        req.session.destroy();
+        return 'Deslogueado';
+    }
+
     @Get('hola')
-    hola(): string {
+    hola(
+        @Session() session,
+    ): string {
+        let contenidoHTML = '';
+        if (session.usuario) {
+            contenidoHTML = '<ul>';
+            session.usuario
+                .roles
+                .forEach(
+                    (nombreRol) => {
+                        contenidoHTML = contenidoHTML + `<li>${nombreRol}</li>`;
+                    },
+                );
+            contenidoHTML += '</ul>';
+        }
+
+
         return `
 <html>
         <head> <title>EPN</title> </head>
         <body>
-        <h1> Mi primera pagina web </h1>
+        <--! CONDICION ? SI : NO -->
+        <h1> Mi primera pagina web ${
+            session.usuario ? session.usuario.nombre : ''
+        }</h1>
+        ${contenidoHTML}
 </body>
 </html>`;
     }
-
 
     // GET /modelo/:id
     @Get(':id')
@@ -70,7 +122,7 @@ export class UsuarioController {
     ): Promise<UsuarioEntity | undefined> {
         return this._usuarioService
             .encontrarUno(
-                Number(identificador)
+                Number(identificador),
             );
     }
 
@@ -87,10 +139,9 @@ export class UsuarioController {
         } else {
             return this._usuarioService
                 .crearUno(
-                    usuario
+                    usuario,
                 );
         }
-
 
     }
 
@@ -110,7 +161,7 @@ export class UsuarioController {
             return this._usuarioService
                 .actualizarUno(
                     +id,
-                    usuario
+                    usuario,
                 );
         }
 
@@ -122,7 +173,7 @@ export class UsuarioController {
     ): Promise<DeleteResult> {
         return this._usuarioService
             .borrarUno(
-                +id
+                +id,
             );
     }
 
@@ -170,9 +221,8 @@ export class UsuarioController {
                 where,
                 skip as number,
                 take as number,
-                order
+                order,
             );
     }
-
 
 }
