@@ -36,10 +36,15 @@ export class UsuarioController {
         res.render('ejemplo', {
             datos: {
                 nombre: 'Adrian',
+                suma: this.suma, // Definicion de la funcion
+                joi: Joi,
             },
         });
     }
 
+    suma(numUno, numDos) {
+        return numUno + numDos;
+    }
 
     @Post('login')
     login(
