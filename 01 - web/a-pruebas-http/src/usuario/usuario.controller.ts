@@ -9,7 +9,7 @@ import {
     Put,
     Query,
     Req, Res,
-    Session
+    Session,
 } from '@nestjs/common';
 import {UsuarioService} from './usuario.service';
 import {UsuarioEntity} from './usuario.entity';
@@ -27,6 +27,22 @@ export class UsuarioController {
         private readonly _usuarioService: UsuarioService,
     ) {
 
+    }
+
+    @Get('ruta/mostrar-usuarios')
+    async rutaMostrarUsuarios(
+        @Res() res,
+    ) {
+        const usuarios = await this._usuarioService.buscar();
+        res.render(
+            'usuario/rutas/buscar-mostrar-usuario',
+            {
+                datos: {
+                    // usuarios:usuarios -> nueva sintaxis,
+                    usuarios,
+                },
+            },
+        );
     }
 
     @Get('ejemploejs')
@@ -105,7 +121,6 @@ export class UsuarioController {
                 );
             contenidoHTML += '</ul>';
         }
-
 
         return `
 <html>
