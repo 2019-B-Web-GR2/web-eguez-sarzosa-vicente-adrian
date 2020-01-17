@@ -1,5 +1,11 @@
-<%- include('../../compartido/cabecera')%>
+<%- include('../../compartido/cabecera') %>
 <div class="container">
+    <% if(datos.error){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= datos.error %>
+    </div>
+    <% } %>
+
     <h1>Crear Usuario</h1>
 
     <form action="/usuario"
@@ -44,4 +50,4 @@
     </form>
 
 </div>
-<%- include('../../compartido/pie-de-pagina')%>
+<%- include('../../compartido/pie-de-pagina') %>

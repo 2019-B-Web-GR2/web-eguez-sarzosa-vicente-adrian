@@ -46,12 +46,16 @@ export class UsuarioController {
     }
 
     @Get('ruta/crear-usuario')
-      rutaCrearUsuario(
+    rutaCrearUsuario(
+        @Query('error') error: string,
         @Res() res,
     ) {
         res.render(
             'usuario/rutas/crear-usuario',
             {
+                datos: {
+                    error,
+                },
             },
         );
     }
@@ -160,13 +164,17 @@ export class UsuarioController {
     @Post()
     async crearUnUsuario(
         @Body() usuario: UsuarioEntity,
+        @Res() res,
     ): Promise<UsuarioEntity> {
         const usuarioCreateDTO = new UsuarioCreateDto();
         usuarioCreateDTO.nombre = usuario.nombre;
         usuarioCreateDTO.cedula = usuario.cedula;
         const errores = await validate(usuarioCreateDTO);
         if (errores.length > 0) {
-            throw new BadRequestException('Error validando');
+            res.redirect(
+                '/usuario/ruta/crear-usuario?error=Error validando',
+            );
+            // throw new BadRequestException('Error validando');
         } else {
             return this._usuarioService
                 .crearUno(
