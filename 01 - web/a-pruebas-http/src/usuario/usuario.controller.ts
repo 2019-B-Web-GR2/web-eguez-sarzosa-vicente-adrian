@@ -165,7 +165,7 @@ export class UsuarioController {
     async crearUnUsuario(
         @Body() usuario: UsuarioEntity,
         @Res() res,
-    ): Promise<UsuarioEntity> {
+    ): Promise<void> {
         const usuarioCreateDTO = new UsuarioCreateDto();
         usuarioCreateDTO.nombre = usuario.nombre;
         usuarioCreateDTO.cedula = usuario.cedula;
@@ -176,10 +176,21 @@ export class UsuarioController {
             );
             // throw new BadRequestException('Error validando');
         } else {
-            return this._usuarioService
-                .crearUno(
-                    usuario,
+            try {
+                await this._usuarioService
+                    .crearUno(
+                        usuario,
+                    );
+                res.redirect(
+                    '/usuario/ruta/mostrar-usuarios',
                 );
+            } catch (error) {
+                console.error(error);
+                res.redirect(
+                    '/usuario/ruta/crear-usuario?error=Error del servidor',
+                );
+            }
+
         }
 
     }
