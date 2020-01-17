@@ -1,5 +1,12 @@
 <%- include('../../compartido/cabecera')%>
 <div class="container">
+
+    <% if(datos.mensaje){ %>
+        <div class="alert alert-primary" role="alert">
+            <%= datos.mensaje %>
+        </div>
+    <% } %>
+
     <h1>Ruta mostrar usuario</h1>
 
     <a href="/usuario/ruta/crear-usuario">
