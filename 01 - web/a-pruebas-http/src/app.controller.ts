@@ -5,7 +5,7 @@ import {
     HttpCode,
     InternalServerErrorException, Param,
     Post,
-    Query
+    Query, Res,
 } from '@nestjs/common';
 import {AppService} from './app.service';
 
@@ -13,6 +13,14 @@ import {AppService} from './app.service';
 export class AppController {
     constructor(private readonly appService: AppService) {
     } // http://localhost:4000/pepito/ GET
+
+    @Get('login')
+    login(
+        @Res() res,
+    ) {
+        res.render('login/login');
+    }
+
     @Get() // -> url "hola-mundo"
     getHello(): string {
         return this.appService.getHello();
@@ -27,7 +35,7 @@ export class AppController {
             return 'Adios mundo!';
         } else {
             throw new InternalServerErrorException(
-                'Es  impar'
+                'Es  impar',
             );
         }
 
@@ -54,7 +62,7 @@ export class AppController {
     public inscripcionCurso(
         @Param() parametrosDeRuta: ObjetoInscripcion,
         @Param('idCurso') idCurso: string,
-        @Param('cedula') cedula: string
+        @Param('cedula') cedula: string,
     ): string {
         console.log(parametrosDeRuta);
         return `Te inscribiste al curso: ${idCurso}\n ${cedula}`;
@@ -85,13 +93,11 @@ interface ObjetoInscripcion {
     cedula: string;
 }
 
-
 interface ObjetoBienvenida {
     nombre?: string;
     numero?: string;
     casado?: string;
 }
-
 
 /*
 // Typescript
@@ -206,11 +212,9 @@ const balonFutbol: Pelota = {
     // peso: 12,
 };
 
-
 class Juego implements Pelota {
     diametro: number;
 }
-
 
 interface Entrenador {
     id: number;

@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97b5618-276e-42de-8ada-0a5ae2f16089" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/login/login.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/46DoOYpPyD7UMsQN__dU66Zz1UjD1APU.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/8E-aveVa5LxFWR0j04d3lYzjQtA9aZka.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/8WNqkugmNnnLGE5hFegmxbiRh5ezgwJx.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/K1HZUrNTHLx4WpFzL_hn_i5jYgxZCd4R.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/K_nP87eCHsbjqxGsUEsVI0C4MwDhReVu.json" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/K_nP87eCHsbjqxGsUEsVI0C4MwDhReVu.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/dMYjSMZZY0wlRvfPOyhNK_fMV_eH7z_v.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/wGKxtW2NiseMq0b32tVsZEzq1ee-eoOP.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/compartido/cabecera.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/compartido/cabecera.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/compartido/pie-de-pagina.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/compartido/pie-de-pagina.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/usuario/rutas/crear-usuario.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/usuario/rutas/crear-usuario.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/app.controller.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +32,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\USRSIG.LABFIS\AppData\Local\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\USRSIG.LABFIS\Documents\GitHub\web-eguez-sarzosa-vicente-adrian\web-eguez-sarzosa-vicente-adrian\01 - web\a-pruebas-http\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -82,7 +74,8 @@
       <workItem from="1576264282485" duration="6531000" />
       <workItem from="1577992579695" duration="6372000" />
       <workItem from="1578079331010" duration="4346000" />
-      <workItem from="1579201976163" duration="6433000" />
+      <workItem from="1579201976163" duration="7244000" />
+      <workItem from="1579288848624" duration="986000" />
     </task>
     <servers />
   </component>
