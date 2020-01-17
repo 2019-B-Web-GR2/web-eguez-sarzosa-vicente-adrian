@@ -32,6 +32,7 @@ export class UsuarioController {
     @Get('ruta/mostrar-usuarios')
     async rutaMostrarUsuarios(
         @Query('mensaje') mensaje: string,
+        @Query('error') error: string,
         @Res() res,
     ) {
         const usuarios = await this._usuarioService.buscar();
@@ -42,6 +43,7 @@ export class UsuarioController {
                     // usuarios:usuarios -> nueva sintaxis,
                     mensaje,
                     usuarios,
+                    error,
                 },
             },
         );
@@ -60,6 +62,32 @@ export class UsuarioController {
                 },
             },
         );
+    }
+
+    @Get('ruta/editar-usuario/:idUsuario')
+    async rutaEditarUsuario(
+        @Query('error') error: string,
+        @Param('idUsuario') idUsuario: string,
+        @Res() res,
+    ) {
+        const consulta = {
+            id: idUsuario,
+        };
+        try {
+            const arregloUsuarios = await this._usuarioService.buscar(consulta);
+            res.render(
+                'usuario/rutas/crear-usuario',
+                {
+                    datos: { error, usuario: arregloUsuarios[0] },
+                },
+            );
+        } catch (error) {
+            console.log(error);
+            res.redirect(
+                'usuario/rutas/mostrar-usuarios?error=Error editando usuario',
+            );
+        }
+
     }
 
     @Get('ejemploejs')

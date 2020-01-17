@@ -1,9 +1,15 @@
 <%- include('../../compartido/cabecera')%>
 <div class="container">
-
+    <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" alt="">
     <% if(datos.mensaje){ %>
         <div class="alert alert-primary" role="alert">
             <%= datos.mensaje %>
+        </div>
+    <% } %>
+
+    <% if(datos.error){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= datos.error %>
         </div>
     <% } %>
 
