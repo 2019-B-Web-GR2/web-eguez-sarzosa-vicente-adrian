@@ -75,16 +75,22 @@ export class UsuarioController {
         };
         try {
             const arregloUsuarios = await this._usuarioService.buscar(consulta);
-            res.render(
-                'usuario/rutas/crear-usuario',
-                {
-                    datos: { error, usuario: arregloUsuarios[0] },
-                },
-            );
+            if (arregloUsuarios.length > 0) {
+                res.render(
+                    'usuario/rutas/crear-usuario',
+                    {
+                        datos: {error, usuario: arregloUsuarios[0]},
+                    },
+                );
+            } else {
+                res.redirect(
+                    '/usuario/ruta/mostrar-usuarios?error=No existe ese usuario',
+                );
+            }
         } catch (error) {
             console.log(error);
             res.redirect(
-                'usuario/rutas/mostrar-usuarios?error=Error editando usuario',
+                '/usuario/ruta/buscar-mostrar-usuarios?error=Error editando usuario',
             );
         }
 
@@ -225,24 +231,30 @@ export class UsuarioController {
 
     }
 
-    @Put(':id')
+    @Post(':id')
     async actualizarUnUsuario(
         @Body() usuario: UsuarioEntity,
         @Param('id') id: string,
-    ): Promise<UsuarioEntity> {
+        @Res() res,
+    ): Promise<void> {
         const usuarioUpdateDTO = new UsuarioUpdateDto();
         usuarioUpdateDTO.nombre = usuario.nombre;
         usuarioUpdateDTO.cedula = usuario.cedula;
         usuarioUpdateDTO.id = +id;
         const errores = await validate(usuarioUpdateDTO);
         if (errores.length > 0) {
-            throw new BadRequestException('Error validando');
+            res.redirect(
+                '/usuario/ruta/editar-usuario/' + id + '?error=Usuario no validado',
+            );
         } else {
-            return this._usuarioService
+            await this._usuarioService
                 .actualizarUno(
                     +id,
                     usuario,
                 );
+            res.redirect(
+                '/usuario/ruta/mostrar-usuarios?mensaje=El usuario ' + usuario.nombre + ' actualizado',
+            );
         }
 
     }
