@@ -13,7 +13,7 @@ import {
 } from '@nestjs/common';
 import {UsuarioService} from './usuario.service';
 import {UsuarioEntity} from './usuario.entity';
-import {DeleteResult} from 'typeorm';
+import {DeleteResult, Like} from 'typeorm';
 import * as Joi from '@hapi/joi';
 import {UsuarioCreateDto} from './usuario.create-dto';
 import {validate} from 'class-validator';
@@ -33,9 +33,21 @@ export class UsuarioController {
     async rutaMostrarUsuarios(
         @Query('mensaje') mensaje: string,
         @Query('error') error: string,
+        @Query('consultaUsuario') consultaUsuario: string,
         @Res() res,
     ) {
-        const usuarios = await this._usuarioService.buscar();
+        let consultaServicio;
+        if (consultaUsuario) {
+            consultaServicio = [
+                {
+                    nombre: Like('%' + consultaUsuario + '%'),
+                },
+                {
+                    cedula: Like('%' + consultaUsuario + '%'),
+                },
+            ];
+        }
+        const usuarios = await this._usuarioService.buscar(consultaServicio);
         res.render(
             'usuario/rutas/buscar-mostrar-usuario',
             {
