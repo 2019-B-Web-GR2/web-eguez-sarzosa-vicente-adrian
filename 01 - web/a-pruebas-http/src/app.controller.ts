@@ -5,14 +5,46 @@ import {
     HttpCode,
     InternalServerErrorException, Param,
     Post,
-    Query, Res,
+    Query, Res, UploadedFile, UseInterceptors,
 } from '@nestjs/common';
 import {AppService} from './app.service';
+import {FileInterceptor} from "@nestjs/platform-express";
 
 @Controller('pepito') // segmento url -> "/"
 export class AppController {
     constructor(private readonly appService: AppService) {
     } // http://localhost:4000/pepito/ GET
+
+    @Post('subir-archivo')
+    @UseInterceptors(
+        FileInterceptor('archivo',
+            {
+                // limits: {
+                //     fieldSize: 10000,
+                // },
+                // dest: './publico-archivos',
+            }),
+    )
+    subirArchivo(@UploadedFile() file) {
+        console.log(file);
+    }
+
+    @Get('ciudades/:idCiudad')
+    ciudades(
+        @Param('idCiudad') idCiudad: string,
+    ) {
+        const ciudadPichincha = [
+            {id: 1, nombre: 'Quito'},
+            {id: 3, nombre: 'Machachi'},
+        ];
+        const ciudadGuayas = [{id: 2, nombre: 'Guayaquil'}, {id: 4, nombre: 'Duran'},
+        ];
+        if (idCiudad === '1') {
+            return ciudadPichincha;
+        } else {
+            return ciudadGuayas;
+        }
+    }
 
     @Get('login')
     login(

@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d97b5618-276e-42de-8ada-0a5ae2f16089" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/rCQo9C0EkaGAikjiRjokf5MgYk0TBajE.json" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/sessions/rCQo9C0EkaGAikjiRjokf5MgYk0TBajE.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/usuario/usuario.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/usuario/rutas/crear-usuario.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/usuario/rutas/crear-usuario.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/src/app.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/usuario/rutas/buscar-mostrar-usuario.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/01 - web/a-pruebas-http/views/usuario/rutas/buscar-mostrar-usuario.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +75,9 @@
       <workItem from="1577992579695" duration="6372000" />
       <workItem from="1578079331010" duration="4346000" />
       <workItem from="1579201976163" duration="7244000" />
-      <workItem from="1579288848624" duration="2791000" />
+      <workItem from="1579288848624" duration="6564000" />
+      <workItem from="1579806952029" duration="6389000" />
+      <workItem from="1580411968476" duration="5979000" />
     </task>
     <servers />
   </component>

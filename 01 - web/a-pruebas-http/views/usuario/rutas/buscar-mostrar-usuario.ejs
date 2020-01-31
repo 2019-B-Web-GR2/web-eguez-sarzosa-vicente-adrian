@@ -1,5 +1,109 @@
-<%- include('../../compartido/cabecera')%>
+<%- include('../../compartido/cabecera') %>
 <div class="container">
+
+    <form action="/pepito/subir-archivo"
+          method="post"
+          enctype="multipart/form-data">
+        <input type="file" name="archivo" />
+        <button>Enviar</button>
+    </form>
+
+    <select name="provincias"
+            id="provincias"
+            onchange="cargarCiudades()"
+    >
+        <option value="1">Pichincha</option>
+        <option value="2">Guayas</option>
+    </select>
+    <div id="contenedorCiudades"></div>
+    <script>
+        function cargarCiudades() {
+            const etiquetaProvincias = document.getElementById('provincias');
+            const idCiudad = etiquetaProvincias.value;
+
+            fetch('/pepito/ciudades/' + idCiudad, {
+                method: 'GET', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then( // OK
+                    (arregloCiudadString) => {
+                        return arregloCiudadString.json();
+                    }
+                )
+                .then(
+                    (arregloJson) => {
+                        let opciones = ''
+                        arregloJson
+                            .forEach(
+                                (ciudad) => {
+                                    opciones = opciones +
+                                        `<option value="${ciudad.id}">${ciudad.nombre}</option>`;
+                                });
+                        const etiquetaContenedoraCiudades = document.getElementById('contenedorCiudades');
+
+
+                        const select = `
+                <select name="ciudad" id="ciudad">
+                    ${opciones}
+                </select>
+                `;
+                        const etiquetaSelect = document.createElement('div');
+                        etiquetaSelect.innerHTML = select;
+                        const existeNodo = etiquetaContenedoraCiudades.childNodes[0];
+                        if (existeNodo) {
+                            etiquetaContenedoraCiudades.removeChild(existeNodo);
+                        }
+                        etiquetaContenedoraCiudades.appendChild(etiquetaSelect);
+                    }
+                )
+                .catch( // ERROR
+                    (error) => {
+                        console.error(error);
+                    }
+                )
+
+            console.log('CAMBIE :D');
+
+
+        }
+    </script>
+
+
+    <button onclick="anadirParrafo()">
+        Hola mundo
+    </button>
+    <div id="contenedor"></div>
+    <script>
+        function anadirParrafo() {
+            const elementoContenedor = document.getElementById('contenedor');
+            const linkImagen = 'https://www.elsoldemexico.com.mx/doble-via/virales/tuz973-memes-2020.jpg/ALTERNATES/LANDSCAPE_1140/memes-2020.jpg';
+            const nombreEtiqueta = 'div';
+            const div = document.createElement(nombreEtiqueta);
+            div.onclick = function(){
+
+            }
+            div.innerHTML = `
+            <div>
+                <img src="${linkImagen}" width="200" height="200" alt="meme">
+                <p>HOLA</p>
+                <button class="btn btn-info"
+                        onclick=anadirParrafo()
+                    >
+                        Dale click loco!
+                </button>
+            </div>
+            `;
+            elementoContenedor.appendChild(div);
+        }
+
+        function holaMundo(EVENTO) { // Envian evento
+            console.log(EVENTO);
+            console.log('HOLA MUNDO :3 ');
+        }
+    </script>
+
     <% if(datos.mensaje){ %>
         <div class="alert alert-primary" role="alert">
             <%= datos.mensaje %>
@@ -21,28 +125,28 @@
         </button>
     </a> <!-- anchor -> ancla -->
 
-        <form action="/usuario/ruta/mostrar-usuarios"
-              method="GET"
-        >
-            <div class="form-group">
-                <label for="consultaID">Buscar usuario:</label>
-                <input id="consultaID"
-                       type="text"
-                       name="consultaUsuario"
-                       placeholder="Ej: 1718138939 o Adrian"
-                       title="Ingresar la busqueda por cedula o nombre"
-                       class="form-control">
-                <small id="cedulaIDHelp"
-                       class="form-text text-muted">
-                    Puede buscar por cedula o nombre.
-                </small>
-            </div>
-        </form>
+    <form action="/usuario/ruta/mostrar-usuarios"
+          method="GET"
+    >
+        <div class="form-group">
+            <label for="consultaID">Buscar usuario:</label>
+            <input id="consultaID"
+                   type="text"
+                   name="consultaUsuario"
+                   placeholder="Ej: 1718138939 o Adrian"
+                   title="Ingresar la busqueda por cedula o nombre"
+                   class="form-control">
+            <small id="cedulaIDHelp"
+                   class="form-text text-muted">
+                Puede buscar por cedula o nombre.
+            </small>
+        </div>
+    </form>
 
 
     <%- include('../componentes/mostrar-tabla',
     {
     usuarios: datos.usuarios
-    })%>
+    }) %>
 </div>
-<%- include('../../compartido/pie-de-pagina')%>
+<%- include('../../compartido/pie-de-pagina') %>
